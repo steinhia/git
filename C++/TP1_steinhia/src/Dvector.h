@@ -32,3 +32,5 @@ Dvector operator+(const Dvector & v1, const Dvector & v2);
   Dvector operator-(const Dvector & vect, const double & a);
   Dvector operator*(const Dvector & vect, const double & a);
   Dvector operator/(const Dvector & vect, const double & a);
+std::ostream & operator<<(std::ostream & out, const Dvector& vect);
+std::istream & operator>>(std::istream & in, const Dvector& vect);

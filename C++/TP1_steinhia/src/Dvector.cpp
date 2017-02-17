@@ -199,8 +199,22 @@ bool Dvector::operator==(const Dvector &vect) {
 }
 
 bool Dvector::operator!=(const Dvector &vect) {
-  return (!(this==vect));
+  return (!(this->operator==(vect)));
 }
+
+std::ostream & operator<<(std::ostream & out, const Dvector& vect) {
+	for(int i = 0; i<vect.size(); i++)
+		out << vect(i)<< " ";
+	return out;
+}
+
+std::istream & operator>>(std::istream & in , const Dvector& vect) {
+	for(int i = 0; i<vect.size(); i++)
+	  in >> vect(i)<< " ";
+	return in;
+}
+
+
 
 
 Dvector::~Dvector() {
