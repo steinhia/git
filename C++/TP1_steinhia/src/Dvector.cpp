@@ -32,6 +32,7 @@ Dvector::Dvector(int taille, double val) {
   this->taille=taille;
 }
 
+
 Dvector::Dvector(const Dvector & vect)
 {
   taille=vect.size();
