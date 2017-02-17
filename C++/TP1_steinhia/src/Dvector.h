@@ -13,7 +13,9 @@ class Dvector
   Dvector& operator-=(const double &a);
   Dvector& operator*=(const double &a);
   Dvector& operator/=(const double &a);
-
+  Dvector& operator=(const Dvector &vect);
+  bool operator==(const Dvector &vect);
+  bool operator!=(const Dvector &vect);
 
   ~Dvector();
   double* vector() const;

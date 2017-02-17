@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <fstream>
 #include <assert.h>
+#include <string.h>
  
 using namespace std;
 
@@ -174,6 +175,34 @@ Dvector operator-(const Dvector & v1) {
   return V;
 }
 
+Dvector & Dvector::operator=(const Dvector &vect) {
+  taille=vect.size();
+  if (taille>0)
+    delete [] vecteur;
+  vecteur = new double[taille];
+  memcpy(vecteur, vect.vector(), taille*sizeof(double));
+  return *this;
+}
+
+bool Dvector::operator==(const Dvector &vect) {
+  if (taille!=vect.size()) {
+      return false ;
+	}
+  else {
+    for(int i=0;i<taille;i++) {
+      if (vect(i)!=vecteur[i]) {
+	return false;
+      }
+    }
+      return true;  
+}
+}
+
+bool Dvector::operator!=(const Dvector &vect) {
+  return (!(this==vect));
+}
+
+
 Dvector::~Dvector() {
   // désalloue le vecteur
   if (vecteur != NULL)
@@ -183,9 +212,10 @@ Dvector::~Dvector() {
 int main() {
   // Redéfinition des variables ??
   Dvector vect(3,2);
-  vect.display(std::cout);
-Dvector x(3,5);  vect = x;
-
+  //vect.display(std::cout);
+Dvector x(4,2);  
+//vect = x;
+ std::cout << (vect!=x)<<std::endl;
 
   //Dvector vecteur=Dvector();
   /*Dvector vect = Dvector(3,2);
