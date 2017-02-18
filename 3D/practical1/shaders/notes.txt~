@@ -1,0 +1,22 @@
+met position dans un vecteur
+crée matrice modèle (identité)
+->où on veut le cube
+glgn buffer manipulation objets
+ex buffet -> paquets de données où met données qu'on va manipuler
+génère buffer pour mettre positions noeuds
+fait bind
+opengl machine à états
+fonctions s'appliquent étant donné état courant
+quand fait bindbuffer -> buffer sur le buffer actif bindbuffer = l'active
+remplit
+transfère noeuds glbufferdata -> transférer vers le cpu
+static draw -> flag qui dit que données ds buffer changent pas souvent
+données sont dans mémoire vidéeo
+dodraw -> affichage -> en plus attributs (position noeuds) autres variables uniforme -> matrice de modèle, de projection
+dit au shader où trouver matrices gluniform..
+active tous les buffer -> va falloir utiliser pour desiner glenablebufferarray ..
+bind
+à quel endroit chercher les données
+afficher
+
+cpd -> machine à état, à chaque fois, que manipuler en bindant les buffer

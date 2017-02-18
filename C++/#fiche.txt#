@@ -1,0 +1,81 @@
+fichier vecteur.cpp
+#include <iostream> -> bibliothèque entrée/sortie clavier
+#include <Qt> -> GUI
+#include <cmath>
+toutes les méthodes de la classe :
+NomClasse::nomF() {}
+delete : NomC::~NomC() { delete nom; }
+output stream ???
+display(std::ostream& str) { str << blabla}
+-> display(std::cout);
+pointeur : alloue déjà dans le consructeur
+-> Dvect vect= Dvector(1,2);
+pour accéder aux valeurs : vecteur[i]
+allocation :
+vecteur= (double*) calloc(num,taille)
+this :
+this->taille=taille;
+mais vecteur.display(std::cout);
+
+fichier vecteur.h
+classe Vector {
+public :
+noms ...
+private :
+noms ...
+};
+
+utilisation du const :
+dans constructeur par référence : Vector::Vector(Vector const& vect)
+-> utilise taille=vect.size() normal, mais doit déclarer la fonction size :
+int Vector::size() const
+appel du constructeur par copie :
+vector vect2=vector(vect);
+
+
+
+using namespace std; -> espace de noms
+int main()
+{
+    cout << "Hello world!" << endl << "\"" << endl << "\\" << endl; -> retour à la ligne
+    varX
+    return 0;
+}
+types bool, char, int, unsigned int, double, string
+int a(0);
+int a=0;
+bool b = true;
+char lettre('a');
+string mot("albert"), nom("Einstein");
+string nom;
+cout << age;
+cin >>age; //readInt -> coupe au premier mot -> getLine();
+référence : int &ageUtil;
+modulo %
+int const g(9.81);
+++age; --age; +=, -=, *=, /=, %=, &&, ||, !
+x=fabs(x) -> abs
+x=floor(x) -> arrondi vers le bas
+x=ceil(x) -> arrondi vers le haut
+
+if () {} else if {}
+
+switch (x)
+{
+case 0; cout << "coucou" << endl; break;
+case ...
+}
+
+surcharge des opérateurs
+hors de la classe : bool operator==(Duree const& a, Duree const& b)
+dans la classe : Duree::estEgal(Duree const& b) const
+-> pour avoir accès aux atributs voulus
++= : void Duree::operaator+=(const Duree& a)
+ou Duree& operator+=(int secondes)
+
+opérateurs de flux
+hors classe : ostream &operator<<( ostream &flux, Duree const& duree) {
+duree.afficher(flux);
+return flux; }
+dans la classe : void Duree::afficher(ostream &flux) const {
+     flux << m_heures << "h" << ... }

@@ -1,0 +1,2 @@
+/user/5/.base/steinhia/home/3D/practical1/extlib/freetype-2.5.5/build/CMakeFiles/dist.dir
+/user/5/.base/steinhia/home/3D/practical1/extlib/freetype-2.5.5/build/CMakeFiles/freetype.dir

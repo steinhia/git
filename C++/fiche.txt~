@@ -1,0 +1,39 @@
+fichier main.cpp
+
+#include <iostream> -> bibliothèque entrée/sortie clavier
+#include <Qt> -> GUI
+#include <cmath>
+
+using namespace std; -> espace de noms
+// commentaire
+/* commentaire */
+int main()
+{
+    cout << "Hello world!" << endl << "\"" << endl << "\\" << endl; -> retour à la ligne
+    varX
+    return 0;
+}
+types bool, char, int, unsigned int, double, string
+int a(0);
+int a=0;
+bool b = true;
+char lettre('a');
+string mot("albert"), nom("Einstein");
+string nom;
+cout << age;
+cin >>age; //readInt -> coupe au premier mot -> getLine();
+référence : int &ageUtil;
+modulo %
+int const g(9.81);
+++age; --age; +=, -=, *=, /=, %=, &&, ||, !
+x=fabs(x) -> abs
+x=floor(x) -> arrondi vers le bas
+x=ceil(x) -> arrondi vers le haut
+
+if () {} else if {}
+
+switch (x)
+{
+case 0; cout << "coucou" << endl; break;
+case ...
+}

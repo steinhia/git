@@ -1,0 +1,7 @@
+contour -> point d'inflexion -> laplacien nul
+pb passage par 0, pas seulement vaut 0 -> courbe nulle lapl=0
+discrétisé -> passe pas par 0 mais presque -> cherche passage -/+
+en 2D : veut gradient maximal
+grad (masque de convolution ou autre) -> si module du gradient est plus grand, positionne à 1
+pas maximal (-> le force à 0). Bcp de gradients à forte valeur
+au moins 3 4 pixels valeur forte -> juste max=contour

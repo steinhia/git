@@ -1,0 +1,56 @@
+#include "pgm.h"
+#include "math.h"
+
+int gaussienne(double x, double y, double sigma) {
+  return (1/(2*pi*sigma*sima)*exp((-x^2+y^2)/(2*sigma^2))
+}
+
+
+main(int ac, char **av) {
+
+  int nb,nl,nc, oldnl,oldnc;
+  unsigned char **im2=NULL,** im1=NULL;
+  double** im4,** im5, ** im6, ** im7, **im8, **im9,**im10;
+
+
+  //Lecture de l'image
+ if (ac < 3) {printf("Usage : %s entree sortie \n",av[0]); exit(1); }
+	/* Lecture d'une image pgm dont le nom est passe sur la ligne de commande */
+  im1=lectureimagepgm(av[1],&nl,&nc);
+  if (im1==NULL)  { puts("Lecture image impossible"); exit(1); }
+
+
+	/*  la fft demande des puissances de 2. On padde avec des 0, mais les dimensions nl et nc changent */ 
+  im7=padimdforfft(im1,&nl,&nc); 
+  /*
+	On peut aussi directement utiliser 
+	im7=padimucforfft(im1,&nl,&nc);
+	sans convertir im1 en image de réels
+  */ 
+	/* Creation des images pour les parties reelles et imagianires des fft  */
+  im4=alloue_image_double(nl,nc); 
+  im5=alloue_image_double(nl,nc); 
+  im6=alloue_image_double(nl,nc);
+
+
+  /* on applique le shift */
+
+  /* Calcul du filtrage dans l'espace de Fourier
+  
+
+/* Calcul de la fft de im7,im4 */
+  fft(im7,im4,im5,im6,nl,nc);
+
+ /* on fait le produit */
+
+
+
+	/* Creation des images pour les parties reelles et imagianires des fft inverses */  im9=alloue_image_double(nl,nc); im10=alloue_image_double(nl,nc); 
+        /* Clacul de la fft inverse de im5,im6 */
+  ifft(im5,im6,im9,im10,nl,nc);
+	/* Conversion en entier8bits de la partie reelle de la fftinverse, 
+	   Suppresion des 0 qui ont servi a completer en utilisant la fonction crop
+	   Sauvegarde au format pgm de cette image qui doit etre identique a 'linverse video 
+	   car on a realise la suite fftinv(fft(image))*/
+  ecritureimagepgm(av[2],crop(imdouble2uchar(im9,nl,nc),0,0,oldnl,oldnc),oldnl,oldnc);
+}

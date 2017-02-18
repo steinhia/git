@@ -1,0 +1,7 @@
+PROG = calc
+OBJS = calc.o stack.o
+CXX = g++
+CXXFLAGS = -Wall -pedantic -g
+
+$(PROG): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)

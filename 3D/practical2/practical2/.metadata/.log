@@ -1,0 +1,14 @@
+!SESSION 2017-02-06 10:30:39.443 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_92
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -data /user/5/.base/steinhia/home/3D/practical2/practical2 -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.core.resources 4 77 2017-02-06 10:33:09.087
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2017-02-06 10:33:09.087
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2017-02-06 10:33:09.087
+!MESSAGE /user/5/.base/steinhia/home/3D/practical2/practical2 overlaps the workspace location: /user/5/.base/steinhia/home/3D/practical2/practical2

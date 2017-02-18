@@ -1,0 +1,192 @@
+FICHIERS DE BASE POUR CREER UN TRIANGLE
+
+DANS FICHIER CUBERENDERABLE.CPP
+
+#include "./../include/CubeRenderable.hpp"
+#include "./../include/gl_helper.hpp"
+#include "./../include/log.hpp"
+
+#include <glm/gtc/type_ptr.hpp>
+#include <GL/glew.h>
+
+CubeRenderable::CubeRenderable(ShaderProgramPtr shaderProgram) :
+    Renderable(shaderProgram),
+    m_pBuffer(0), m_cBuffer(0)
+{
+
+//crée les positions
+m_positions.push_back(glm::vec3(-1,0,0));
+m_positions.push_back(glm::vec3(1,0,0));
+m_positions.push_back(glm::vec3(0,1,0));
+
+//rajoute les couleurs -> le fait changer de position ? dommage!
+m_colors.push_back(glm::vec4(0,0.5,0,1));
+m_colors.push_back(glm::vec4(0,0.5,0,1));
+m_colors.push_back(glm::vec4(0,0.5,0,1));
+
+m_model = glm::mat4(1.0);
+
+glGenBuffers(1, &m_pBuffer);
+glBindBuffer(GL_ARRAY_BUFFER, m_pBuffer);
+glBufferData(GL_ARRAY_BUFFER, m_positions.size()*sizeof(glm::vec3), m_positions.data(), GL_STATIC_DRAW);
+
+glGenBuffers(1, &m_cBuffer);
+glBindBuffer(GL_ARRAY_BUFFER, m_cBuffer);
+glBufferData(GL_ARRAY_BUFFER,m_colors.size()*sizeof(glm::vec4),m_colors.data(), GL_STATIC_DRAW);
+}
+
+CubeRenderable::~CubeRenderable()
+{
+ glDeleteBuffers(1, &m_pBuffer);
+ glDeleteBuffers(1, &m_cBuffer);
+}
+void CubeRenderable::do_draw()
+{
+    //Get the identifier (location) of the uniform modelMat in the shader program
+    int modelLocation = m_shaderProgram->getUniformLocation("modelMat");
+
+    //Send the data corresponding to this identifier on the GPU
+    glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(m_model));
+
+    //Get the identifier of the attribute vPosition in the shader program
+    int positionLocation = m_shaderProgram->getAttributeLocation("vPosition");
+    int cLoc = m_shaderProgram->getAttributeLocation("vColor");
+
+    glEnableVertexAttribArray(positionLocation);
+    glBindBuffer(GL_ARRAY_BUFFER, m_pBuffer);
+    glVertexAttribPointer(positionLocation, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+
+    glEnableVertexAttribArray(cLoc);
+    glBindBuffer(GL_ARRAY_BUFFER, m_cBuffer);
+    glVertexAttribPointer(cLoc, 4, GL_FLOAT, GL_FALSE, 0, (void*)0);
+
+    //Draw the triangles
+    glDrawArrays(GL_TRIANGLES,0, m_positions.size());
+
+    //Release the vertex attribute array
+    glDisableVertexAttribArray(positionLocation);
+    glDisableVertexAttribArray(cLoc);
+    glcheck(glBindBuffer(GL_ARRAY_BUFFER, 0 ));
+}
+
+void CubeRenderable::do_animate(float time)
+{
+}
+
+DANS LE HPP CORRESPONDANT
+
+#ifndef CUBE_RENDERABLE_HPP
+#define CUBE_RENDERABLE_HPP
+
+#include "Renderable.hpp"
+#include <vector>
+#include <glm/glm.hpp>
+
+class CubeRenderable : public Renderable
+{
+    public:
+        ~CubeRenderable(); -> DELETE
+        CubeRenderable();
+        CubeRenderable(ShaderProgramPtr program);
+
+    private:
+        void do_draw();
+        void do_animate(float time);
+
+        std::vector<glm::vec3> m_positions;
+        std::vector<glm::vec4> m_colors;
+        unsigned int m_pBuffer;
+        unsigned int m_cBuffer;
+};
+
+typedef std::shared_ptr<CubeRenderable> CubeRenderablePtr;
+
+#endif
+
+DANS LE MAIN 
+
+#include "./../include/Viewer.hpp"
+#include "../include/log.hpp"
+#include "./../include/ShaderProgram.hpp"
+#include "./../include/FrameRenderable.hpp"
+#include "./../include/CubeRenderable.hpp"
+#include <iostream>
+
+  static void remplit_scene(Viewer& viewer)
+  {
+//Compile and link the flat shaders into a shader program
+std::string vShader = "./../shaders/flatVertex.glsl";
+std::string fShader = "./../shaders/flatFragment.glsl";
+ShaderProgramPtr flatShader = std::make_shared<ShaderProgram>(vShader, fShader);
+viewer.addShaderProgram(flatShader);
+
+// cree l'axe
+FrameRenderablePtr frame = std::make_shared<FrameRenderable>(flatShader);
+viewer.addRenderable(frame);
+// cree l'objet (ici le cube)
+CubeRenderablePtr cube = std::make_shared<CubeRenderable>(flatShader);
+viewer.addRenderable(cube);
+ }
+
+int main()
+{
+int width=1280; //Width of the window (pixel)
+int height=720; //Height of the window (pixel)
+Viewer viewer(width, height);
+remplit_scene(viewer);
+
+while (viewer.isRunning()) {
+    viewer.handleEvent();
+    viewer.draw();
+    viewer.display();
+}
+    return EXIT_SUCCESS;
+}
+
+DANS FLATVERTEX
+#version 400
+uniform mat4 projMat, viewMat, modelMat;
+in vec3 vPosition;
+in vec4 vColor;
+
+// design choice: colors are always vec4
+out vec4 fragmentColor;
+
+void main()
+{
+    // Transform coordinates from local space to clipped space
+    gl_Position = projMat*viewMat*modelMat*vec4(vPosition, 1.0f);
+    fragmentColor = vColor;
+}
+
+DANS FLATFRAGMENT
+#version 400 
+in vec4 fragmentColor;
+out vec4 outColor; 
+void main()
+{
+    outColor = fragmentColor;
+
+
+SUITE
+envoi d'une matrice au shader :
+glUniformMatrix4fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat* value);
+glUniformMatrix4fv(glGetUniformLocation(shaderCouleur.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
+}
+
+transformations :
+mat4 translate(mat4 matrice, vec3 translation); -> ex vec3(0.4,0.0,0.0)
+mat4 rotate(mat4 matrice, double angle, vec3 axis);
+mat4 scale(mat4 matrice, vec3 factors);
+
+caméra :
+mat4 lookAt(vec3 eye, vec3 center, vec3 up); -> initialisation de la matrice modelview
+eye : caméra
+center : point fixé
+up : vecteur = verticale du repère
+
+test de profondeur -> Depth Buffer
+void glEnable(GLenum cap); -> GL_DEPTH_TEST
+// Nettoyage de la fenêtre et du Depth Buffer
+glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+

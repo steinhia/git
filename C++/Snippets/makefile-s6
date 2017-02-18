@@ -1,0 +1,13 @@
+# Commentaire
+CXX = g++
+CXXFLAGS = -02 -Wall
+LDFLAGS =
+EXECUTABLE = exe
+SOURCES = source1.cxx source2.cxx source3.cxx
+OBJETS = $(SOURCES:.cxx=.o)
+$(EXECUTABLE) : $(OBJETS)
+	$(CXX) $(CXXFLAGS) -o $@ $^  $(LDFLAGS)
+.cxx.o:
+	$(CXX) $(CXXFLAGS) $< -o $@
+clean:
+	rm -f $(EXECUTABLE) $(OBJETS)

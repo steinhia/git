@@ -1,0 +1,4 @@
+exe : source.o
+	g++ -o exe source.o
+source.o : source.c
+	g++ -c source.c

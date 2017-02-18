@@ -1,0 +1,6 @@
+make check : lance les tests
+make clean : supprime les .o et les doc
+make doc : génère la doc dans le dossier ./doc
+make all : make clean,make check, make doc
+
+make viewDoc : génère la doc, et l'ouvre avec Firefox

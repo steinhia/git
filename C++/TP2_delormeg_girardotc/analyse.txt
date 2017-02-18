@@ -1,0 +1,22 @@
+Question n° 2:
+
+Le premier cas Dvector operator+ (Dvector a, Dvector b) surcharge l'opérateur plus en prenant deux vecteurs
+en paramètres, qui ne sont pas des  références vers ceux-ci, contrairement au deuxième cas. Aussi à l'appel 
+de la fonction, deux copie des paramètres vont être crées pour que la fonction travaille dessus, alors que 
+l'appel de la deuxième fonction ne le nécessite pas, puisque l'on travaille sur les paramètre même de la 
+fonction.
+1 er cas : 3 objets créés
+2 e cas : 1 objet créé
+
+Question n° 4:
+
+Pour implémenter !=, on pourrait appeler l'opérateur == et renvoyer !(v1==v2)
+l'opération + ou * étant symétrique, on aurait pu pour écrire v*d ou v+d appeler d*v ou d+v
+
+Pour implémenter l'opérateur - binaire, on aurait pu appeler l'opérateur - unaire et l'opérateur +
+
+Question n° 5:
+	
+Un million de recopie, avec memcopy (commande make egal dans le dossier src) prend 17.13 secondes alors 
+que l'autre méthode prend 205.08 secondes. 
+On se rend donc compte que memcpy est plus efficace qu'une recopie manuelle. 

@@ -1,0 +1,1 @@
+POINT(const vect &);

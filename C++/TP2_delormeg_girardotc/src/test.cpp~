@@ -1,0 +1,50 @@
+#include "Dvector.h"
+#include <string>       // std::string
+#include <iostream>     // std::cout
+#include <sstream>      // std::stringstream
+#include <assert.h>
+
+int main()
+{	
+	// Test du constructeur par défaut
+	cout<<"Constructeur par défaut:"<<endl;
+	Dvector v1;
+	assert(v1.size() == 0);
+	std::stringstream str;
+	v1.display(str);
+	assert(str.str() == "");
+	cout<<"OK"<<endl;
+	str.str("");
+	
+	// Test du constructeur classique
+	cout<<"Constructeur classique:"<<endl;
+	Dvector v2(4,3.22);
+	assert(v2.size() == 4);
+	v2.display(str);
+	assert(str.str() == "3.22\n3.22\n3.22\n3.22\n");
+	cout<<"OK"<<endl;
+	str.str("");
+
+
+	// Test du constructeur par copie
+	cout<<"Constructeur classique:"<<endl;
+	Dvector v3(v2);
+	assert(v3.size() == v2.size());
+	v3.display(str);
+	assert(str.str() == "3.22\n3.22\n3.22\n3.22\n");
+	cout<<"OK"<<endl;
+	str.str("");
+	
+	// Test du constructeur par fichier
+	cout<<"Constructeur classique:"<<endl;
+	Dvector v4("./tests/tp1_test1.txt");
+	cout << v4.size() <<endl;
+	//assert(v4.size() == 10);
+	v4.display(cout);
+	v4.display(str);
+	assert(str.str() == "1.6218231e-01\n7.9428454e-01\n3.1121504e-01\n5.2853314e-01\n1.6564873e-01\n6.0198194e-01\n2.6297128e-01\n6.5407910e-01\n6.8921450e-01\n7.4815159e-01");
+
+
+	cout<<"OK"<<endl;
+	str.str("");
+}

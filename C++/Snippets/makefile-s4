@@ -1,0 +1,6 @@
+CXX = g++
+CXXFLAGS = -02 -Wall
+exe : source.o
+	$(CXX) source.o -o exe
+source.o : source.c
+	$(CXX) -c $(CXXFLAGS) source.cxx

@@ -1,0 +1,382 @@
+\hypertarget{classDvector}{\section{Dvector Class Reference}
+\label{classDvector}\index{Dvector@{Dvector}}
+}
+
+
+Class describing a \hyperlink{classDvector}{Dvector}, defined by a size, and an array of doubles.  
+
+
+
+
+{\ttfamily \#include $<$Dvector.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDvector_adf0f620df0feef3311f7d198e649a298}{\hyperlink{classDvector_adf0f620df0feef3311f7d198e649a298}{Dvector} ()}\label{classDvector_adf0f620df0feef3311f7d198e649a298}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDvector}{Dvector}'s default constructor, creates a vector whose size equals zero. \end{DoxyCompactList}\item 
+\hyperlink{classDvector_a38a505f0d98190f86d6a6d84b1c1854e}{Dvector} (int n\-Dim, double val=0.\-0)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDvector}{Dvector}'s constructor, specifying the number of dimensions and the default value stored on each component of the vector. \end{DoxyCompactList}\item 
+\hyperlink{classDvector_a6ca045c78602ab23be94e8701669a73f}{Dvector} (const \hyperlink{classDvector}{Dvector} \&V)
+\begin{DoxyCompactList}\small\item\em Constructor copying V into the new \hyperlink{classDvector}{Dvector}. \end{DoxyCompactList}\item 
+\hyperlink{classDvector_a714f54f3fa82fa9d4f61819dc4f86cc1}{Dvector} (std\-::string name\-File)
+\begin{DoxyCompactList}\small\item\em Constructor which creates a \hyperlink{classDvector}{Dvector} from the file named name\-File. \end{DoxyCompactList}\item 
+\hypertarget{classDvector_a3156d0776c5da1a15685970200ec6b96}{\hyperlink{classDvector_a3156d0776c5da1a15685970200ec6b96}{$\sim$\-Dvector} ()}\label{classDvector_a3156d0776c5da1a15685970200ec6b96}
+
+\begin{DoxyCompactList}\small\item\em Destructor of a \hyperlink{classDvector}{Dvector}. \end{DoxyCompactList}\item 
+void \hyperlink{classDvector_a38e7631a6fc81ca7355b2c7361ceed95}{display} (std\-::ostream \&str) const 
+\begin{DoxyCompactList}\small\item\em print the \hyperlink{classDvector}{Dvector}'s information on the str flow \end{DoxyCompactList}\item 
+int \hyperlink{classDvector_af92b914997c31751ca7f805f63e0d543}{size} () const 
+\begin{DoxyCompactList}\small\item\em returns the \hyperlink{classDvector}{Dvector}'s size \end{DoxyCompactList}\item 
+\hypertarget{classDvector_a6fecdca0fbad7f928403597e322234b1}{void \hyperlink{classDvector_a6fecdca0fbad7f928403597e322234b1}{fill\-Randomly} ()}\label{classDvector_a6fecdca0fbad7f928403597e322234b1}
+
+\begin{DoxyCompactList}\small\item\em Fill the vector with random values following a uniform distribution. \end{DoxyCompactList}\item 
+void \hyperlink{classDvector_ae5708b29ce6c3d989e6d05f5dbfcb2b0}{resize} (const int \&\hyperlink{classDvector_af92b914997c31751ca7f805f63e0d543}{size}, const double \&val)
+\begin{DoxyCompactList}\small\item\em Change the size of the \hyperlink{classDvector}{Dvector} with the new size, and fill the new memory allocated with val. \end{DoxyCompactList}\item 
+double \& \hyperlink{classDvector_ae355bf2da1777227c39e5687810c1b41}{operator()} (int i)
+\begin{DoxyCompactList}\small\item\em Getter's of the ith element of the \hyperlink{classDvector}{Dvector}, writable. \end{DoxyCompactList}\item 
+double \hyperlink{classDvector_ab36d783942e527645ae497ff7fe2e038}{operator()} (int i) const 
+\begin{DoxyCompactList}\small\item\em Getter's of the ith element of the \hyperlink{classDvector}{Dvector}, from a const \hyperlink{classDvector}{Dvector}. \end{DoxyCompactList}\item 
+\hyperlink{classDvector}{Dvector} \& \hyperlink{classDvector_a12f34e49012dd55b605eadfb41ea8ec0}{operator=} (const \hyperlink{classDvector}{Dvector} \&D)
+\begin{DoxyCompactList}\small\item\em Overloading the = operator. \end{DoxyCompactList}\item 
+\hyperlink{classDvector}{Dvector} \& \hyperlink{classDvector_af8792a4ca9c76251e5e6de5b7c73306f}{operator+=} (const \hyperlink{classDvector}{Dvector} \&)
+\begin{DoxyCompactList}\small\item\em Overloading the += operator. \end{DoxyCompactList}\item 
+\hyperlink{classDvector}{Dvector} \& \hyperlink{classDvector_a596872218e11d528f9f158b45027225a}{operator-\/=} (const \hyperlink{classDvector}{Dvector} \&)
+\begin{DoxyCompactList}\small\item\em Overloading the -\/= operator. \end{DoxyCompactList}\item 
+\hyperlink{classDvector}{Dvector} \& \hyperlink{classDvector_a37ef56d7296def48977784289854f368}{operator+=} (const double \&)
+\begin{DoxyCompactList}\small\item\em Overloading the += operator. \end{DoxyCompactList}\item 
+\hyperlink{classDvector}{Dvector} \& \hyperlink{classDvector_aeda9c71108651fe543ab0f739a6dc1cb}{operator-\/=} (const double \&)
+\begin{DoxyCompactList}\small\item\em Overloading the -\/= operator. \end{DoxyCompactList}\item 
+\hyperlink{classDvector}{Dvector} \& \hyperlink{classDvector_a28feeab88aef45f10904d26ffb3d0467}{operator$\ast$=} (const double \&)
+\begin{DoxyCompactList}\small\item\em Overloading the $\ast$= operator. \end{DoxyCompactList}\item 
+\hyperlink{classDvector}{Dvector} \& \hyperlink{classDvector_a476c9bf39a35968e9693a6af4dade795}{operator/=} (const double \&)
+\begin{DoxyCompactList}\small\item\em Overloading the /= operator. \end{DoxyCompactList}\item 
+bool \hyperlink{classDvector_a696e2627978288f060beb106c98c7b3c}{operator==} (const \hyperlink{classDvector}{Dvector} \&)
+\begin{DoxyCompactList}\small\item\em Overloading the == operator. \end{DoxyCompactList}\item 
+bool \hyperlink{classDvector_a9cfad018b4dc733912472b38be0d2fe1}{operator!=} (const \hyperlink{classDvector}{Dvector} \&)
+\begin{DoxyCompactList}\small\item\em Overloading the != operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class describing a \hyperlink{classDvector}{Dvector}, defined by a size, and an array of doubles. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDvector_a38a505f0d98190f86d6a6d84b1c1854e}{\index{Dvector@{Dvector}!Dvector@{Dvector}}
+\index{Dvector@{Dvector}!Dvector@{Dvector}}
+\subsubsection[{Dvector}]{\setlength{\rightskip}{0pt plus 5cm}Dvector\-::\-Dvector (
+\begin{DoxyParamCaption}
+\item[{int}]{n\-Dim, }
+\item[{double}]{val = {\ttfamily 0.0}}
+\end{DoxyParamCaption}
+)}}\label{classDvector_a38a505f0d98190f86d6a6d84b1c1854e}
+
+
+\hyperlink{classDvector}{Dvector}'s constructor, specifying the number of dimensions and the default value stored on each component of the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & n\-Dim \\
+\hline
+{\em double} & val = 0 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDvector_a6ca045c78602ab23be94e8701669a73f}{\index{Dvector@{Dvector}!Dvector@{Dvector}}
+\index{Dvector@{Dvector}!Dvector@{Dvector}}
+\subsubsection[{Dvector}]{\setlength{\rightskip}{0pt plus 5cm}Dvector\-::\-Dvector (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dvector} \&}]{V}
+\end{DoxyParamCaption}
+)}}\label{classDvector_a6ca045c78602ab23be94e8701669a73f}
+
+
+Constructor copying V into the new \hyperlink{classDvector}{Dvector}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classDvector}{Dvector}} & V \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDvector_a714f54f3fa82fa9d4f61819dc4f86cc1}{\index{Dvector@{Dvector}!Dvector@{Dvector}}
+\index{Dvector@{Dvector}!Dvector@{Dvector}}
+\subsubsection[{Dvector}]{\setlength{\rightskip}{0pt plus 5cm}Dvector\-::\-Dvector (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name\-File}
+\end{DoxyParamCaption}
+)}}\label{classDvector_a714f54f3fa82fa9d4f61819dc4f86cc1}
+
+
+Constructor which creates a \hyperlink{classDvector}{Dvector} from the file named name\-File. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\-::string} & name\-File \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDvector_a38e7631a6fc81ca7355b2c7361ceed95}{\index{Dvector@{Dvector}!display@{display}}
+\index{display@{display}!Dvector@{Dvector}}
+\subsubsection[{display}]{\setlength{\rightskip}{0pt plus 5cm}void Dvector\-::display (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{str}
+\end{DoxyParamCaption}
+) const}}\label{classDvector_a38e7631a6fc81ca7355b2c7361ceed95}
+
+
+print the \hyperlink{classDvector}{Dvector}'s information on the str flow 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\-::ostream\&} & str \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDvector_a9cfad018b4dc733912472b38be0d2fe1}{\index{Dvector@{Dvector}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!Dvector@{Dvector}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}bool Dvector\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dvector} \&}]{Q}
+\end{DoxyParamCaption}
+)}}\label{classDvector_a9cfad018b4dc733912472b38be0d2fe1}
+
+
+Overloading the != operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classDvector}{Dvector}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\hypertarget{classDvector_ae355bf2da1777227c39e5687810c1b41}{\index{Dvector@{Dvector}!operator()@{operator()}}
+\index{operator()@{operator()}!Dvector@{Dvector}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}double \& Dvector\-::operator() (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}}\label{classDvector_ae355bf2da1777227c39e5687810c1b41}
+
+
+Getter's of the ith element of the \hyperlink{classDvector}{Dvector}, writable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & i\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double coord\mbox{[}i\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{classDvector_ab36d783942e527645ae497ff7fe2e038}{\index{Dvector@{Dvector}!operator()@{operator()}}
+\index{operator()@{operator()}!Dvector@{Dvector}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}double Dvector\-::operator() (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const}}\label{classDvector_ab36d783942e527645ae497ff7fe2e038}
+
+
+Getter's of the ith element of the \hyperlink{classDvector}{Dvector}, from a const \hyperlink{classDvector}{Dvector}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classDvector_a28feeab88aef45f10904d26ffb3d0467}{\index{Dvector@{Dvector}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Dvector@{Dvector}}
+\subsubsection[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} \& Dvector\-::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const double \&}]{d}
+\end{DoxyParamCaption}
+)}}\label{classDvector_a28feeab88aef45f10904d26ffb3d0467}
+
+
+Overloading the $\ast$= operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & d\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classDvector}{Dvector} 
+\end{DoxyReturn}
+\hypertarget{classDvector_af8792a4ca9c76251e5e6de5b7c73306f}{\index{Dvector@{Dvector}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Dvector@{Dvector}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} \& Dvector\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dvector} \&}]{Q}
+\end{DoxyParamCaption}
+)}}\label{classDvector_af8792a4ca9c76251e5e6de5b7c73306f}
+
+
+Overloading the += operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classDvector}{Dvector}} & D\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classDvector}{Dvector} 
+\end{DoxyReturn}
+\hypertarget{classDvector_a37ef56d7296def48977784289854f368}{\index{Dvector@{Dvector}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Dvector@{Dvector}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} \& Dvector\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{const double \&}]{Q}
+\end{DoxyParamCaption}
+)}}\label{classDvector_a37ef56d7296def48977784289854f368}
+
+
+Overloading the += operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & d\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classDvector}{Dvector} 
+\end{DoxyReturn}
+\hypertarget{classDvector_a596872218e11d528f9f158b45027225a}{\index{Dvector@{Dvector}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Dvector@{Dvector}}
+\subsubsection[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} \& Dvector\-::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dvector} \&}]{Q}
+\end{DoxyParamCaption}
+)}}\label{classDvector_a596872218e11d528f9f158b45027225a}
+
+
+Overloading the -\/= operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classDvector}{Dvector}} & D\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classDvector}{Dvector} 
+\end{DoxyReturn}
+\hypertarget{classDvector_aeda9c71108651fe543ab0f739a6dc1cb}{\index{Dvector@{Dvector}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Dvector@{Dvector}}
+\subsubsection[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} \& Dvector\-::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const double \&}]{d}
+\end{DoxyParamCaption}
+)}}\label{classDvector_aeda9c71108651fe543ab0f739a6dc1cb}
+
+
+Overloading the -\/= operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & d\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classDvector}{Dvector} 
+\end{DoxyReturn}
+\hypertarget{classDvector_a476c9bf39a35968e9693a6af4dade795}{\index{Dvector@{Dvector}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Dvector@{Dvector}}
+\subsubsection[{operator/=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} \& Dvector\-::operator/= (
+\begin{DoxyParamCaption}
+\item[{const double \&}]{d}
+\end{DoxyParamCaption}
+)}}\label{classDvector_a476c9bf39a35968e9693a6af4dade795}
+
+
+Overloading the /= operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & d\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classDvector}{Dvector} 
+\end{DoxyReturn}
+\hypertarget{classDvector_a12f34e49012dd55b605eadfb41ea8ec0}{\index{Dvector@{Dvector}!operator=@{operator=}}
+\index{operator=@{operator=}!Dvector@{Dvector}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dvector} \& Dvector\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dvector} \&}]{D}
+\end{DoxyParamCaption}
+)}}\label{classDvector_a12f34e49012dd55b605eadfb41ea8ec0}
+
+
+Overloading the = operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classDvector}{Dvector}} & D\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classDvector}{Dvector} 
+\end{DoxyReturn}
+\hypertarget{classDvector_a696e2627978288f060beb106c98c7b3c}{\index{Dvector@{Dvector}!operator==@{operator==}}
+\index{operator==@{operator==}!Dvector@{Dvector}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Dvector\-::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dvector} \&}]{Q}
+\end{DoxyParamCaption}
+)}}\label{classDvector_a696e2627978288f060beb106c98c7b3c}
+
+
+Overloading the == operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classDvector}{Dvector}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\hypertarget{classDvector_ae5708b29ce6c3d989e6d05f5dbfcb2b0}{\index{Dvector@{Dvector}!resize@{resize}}
+\index{resize@{resize}!Dvector@{Dvector}}
+\subsubsection[{resize}]{\setlength{\rightskip}{0pt plus 5cm}void Dvector\-::resize (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{size, }
+\item[{const double \&}]{val}
+\end{DoxyParamCaption}
+)}}\label{classDvector_ae5708b29ce6c3d989e6d05f5dbfcb2b0}
+
+
+Change the size of the \hyperlink{classDvector}{Dvector} with the new size, and fill the new memory allocated with val. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & size \\
+\hline
+{\em double} & val \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDvector_af92b914997c31751ca7f805f63e0d543}{\index{Dvector@{Dvector}!size@{size}}
+\index{size@{size}!Dvector@{Dvector}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}int Dvector\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classDvector_af92b914997c31751ca7f805f63e0d543}
+
+
+returns the \hyperlink{classDvector}{Dvector}'s size 
+
+\begin{DoxyReturn}{Returns}
+int size 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/ragondyn/guillaume0delorme@gmail.\-com/\-Documents/\-Cours/2\-A/2\-S/modelisation/\-T\-P/modelisation/\-T\-P2\-\_\-delormeg\-\_\-girardotc/src/Dvector.\-h\item 
+/home/ragondyn/guillaume0delorme@gmail.\-com/\-Documents/\-Cours/2\-A/2\-S/modelisation/\-T\-P/modelisation/\-T\-P2\-\_\-delormeg\-\_\-girardotc/src/Dvector.\-cpp\end{DoxyCompactItemize}

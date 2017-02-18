@@ -1,0 +1,98 @@
+met position dans un vecteur
+crée matrice modèle (identité)
+->où on veut le cube
+glGenBuffers manipulation objets
+ex buffer -> paquets de données où met données qu'on va manipuler
+génère buffer pour mettre positions noeuds
+fait bind
+opengl machine à états
+fonctions s'appliquent étant donné état courant
+quand fait bindbuffer -> buffer sur le buffer actif bindbuffer = l'active
+remplit
+transfère noeuds glbufferdata -> transférer vers le cpu
+static draw -> flag qui dit que données ds buffer changent pas souvent
+données sont dans mémoire vidéeo
+dodraw -> affichage -> en plus attributs (position noeuds) autres variables uniforme -> matrice de modèle, de projection
+dit au shader où trouver matrices gluniform..
+active tous les buffer -> va falloir utiliser pour desiner glenablebufferarray ..
+bind
+à quel endroit chercher les données
+afficher
+
+cpd -> machine à état, à chaque fois, que manipuler en bindant les buffer
+
+vertex = point
+après avoir défini points, faut les envoyer à Opengl
+-> besoin d'un VertexAttribut
+
+void glVertexAttribPointer(GLuint index, GLuint size, GLenum type, 
+     		GLboolean normalized, GLsizei stride, const GLvoi d *pointer);
+index : numéro du tableau
+size : nb de coord par vertex
+type : type de données
+normalized : openGl normalise les données ?
+pointer : pointeur vers les données
+
+Resumé :
+    glVertexAttribPointer() : pour donner les vertices à OpenGL
+    glEnableVertexAttribArray() : pour activer le tableau Vertex Attrib
+    glDrawArrays() : pour afficher le tout
+
+ex :
+float vertices[] = {-0.5, -0.5,   0.0, 0.5,   0.5, -0.5};
+// on active le tableau
+void glEnableVertexAttribArray(GLuint index);
+// on  envoie les données à openGL
+glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, vertices);
+// Que faire avec ces points ?
+glDrawArrays(GLenum mode, GLint first, GLsizei count);
+mode : forme finale -> GL_TRIANGLES, GL_POLYGON,GL_LINES,GL_TRIANGLES_STRIP
+first : premier indice (0)
+count : nb de points à afficher
+// jUSTE APRÈS AFFICHAGE, ON DÉSACTIVE LE TABLEAU DE VERTEX
+glDisableVertexAttribArray(0);
+
+// Plusieurs tableaux : tout dans le même tableau!
+
+// attributs de la classe commencent par m
+
+// création de la fenêtre -> rajoute les paramètres de taille
+SceneOpenGL(std::string titreFenetre, int largeurFenetre, int hauteurFenetre);
+// création du contexte 
+
+//initialiser les objets
+bool initialiserFenetre(); -> bool pour confirmer création
+
+//initialiser l'OpenGL
+bool initGL();
+
+void bouclePrincipale();
+
+// Constructeur : initialisation des param 
+SceneOpenGL::SceneOpenGL(std::string titreFenetre, int largeurFenetre, int hauteurFenetre) : m_titreFenetre(titreFenetre), m_largeurFenetre(largeurFenetre),                       m_hauteurFenetre(hauteurFenetre), m_fenetre(0), m_contexteOpenGL(0)
+{
+}
+
+// Destruction
+SceneOpenGL::~SceneOpenGL()
+{
+}
+//Dans le main :
+int main(int argc, char **argv)
+{
+// Création de la sène
+SceneOpenGL scene("Chapitre 3", 800, 600);
+// Boucle Principale
+scene.bouclePrincipale();
+}
+
+//Les shaders -> programme exécuté par la carte graphique
+pas accès à la carte graphique ms slmt CPU+RAM
+Dans glDrawArrays() : pipeline 3D
+CPU :     définition des données -> glVertexAttribPointer()
+Carte graphique : Vertex Shader -> valider ou modifier coordonnées des sommets
+      		  	 -> pour un triangle, Vertex Shader exécuté 3 fois
+      		  Pixélisation des triangles
+		  Fragment Shader  -> couleur de chaque pixel
+		  Test de profondeur -> faut-il afficher tel pixel ?
+Ecran	   Affichage

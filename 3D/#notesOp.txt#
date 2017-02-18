@@ -1,0 +1,58 @@
+Context -> openGL -> machine à états
+shader -> une des étapes du pipeline programmable pour faire le rendu (comporement à chaque étape)
+objet : groupe d'états attaché au ctxt (glBind)
+shaderprogram va lire les différentes épates écrites dans les shader
+vertex -> sur les pts
+fragment -> w par pixel
+-> les lit ens dans un programme
+1/ crée tableaux de positions
+passer du repère monde -> caméra (matrice projection) -> dans classe caméra
+tableau couleurs
+tableau indices
+crée des noms pour les buffer -> entier non signé
+génère le buffer -> glGenBuffer(1, &posVBO);
+bind -> change le contexte openGl -> glBindBuffer(GL_ARRAY_BUFFER, posVBO);
+glBufferData(GL_ARRAY_BUFFER, 12*sizeof(float), vPos, GL_STATIC_DRAW); (4 pos à 3 coord)
+-> affichage, read, copy, dynamic draw etc
+buffer d'indices -> permet de définir
+sans indices -> 6 vertcies
+avec indices -> 4 indices (pour le carré)
+glGenBuffer(1, &indicesVBO);
+glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesVBO);
+glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6*sizeof(unsigned int), vIndices, GL_STATIC_DRAW);
+
+-> buffer remplis
+
+voir schéma -> peut programmer bleu
+vertex specification -> vecteur de données
+interprétation ? fct draw
+variables uniformes partagées pour tous les vertices (ex matrice transfo)
+pour les donner au shader glUniformMatric4v (a peu pres)
+glUniformMatrix4fv(viewlLoc, 1, GL_FALSE, viewMat);
+-> faut le faire à chaque fois
+cmt interprétées
+1/ activation du tableau (par défaut pas activé)
+glEnableVertexAttribArray(posLoc);
+glBindBuffer(GL_ARRAY_BUFFER, posVBO);
+glVertexAttribPointer(posLoc, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+ -> lui dit à quoi ressemblent les données (0 et un buffer par type de composante)
+-> commence à 0
+glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)0);
+appelle 6 -> nb de points, pas de triangles
+glDisableVertexAttribArray(posLoc);
+glDisableVertexAttribArray(colLoc); -> défait le lien
+
+traitement des vertices -> noeud doit être transformé du repère local au repère de la caméra -> vertex shader
+
+( tesselation shader -> peut rajouter des noeuds
+geometry shader -> génère nvlles primitives : si lui envoie des points )
+
+un thread par vertex (tourne en parallele)
+le thread 2 va lire à +3 etc
+
+vertex post processing -> enlève pts hors de l'espace caméra
+primitive assembly - crée prim
+rasterization -> flottants -> pixels (prim -> fragments) -> interpolation
+
+fragment shader -> couleurs (illumination)
+per-sample operations -> lequel devant
