@@ -1,1 +1,3 @@
-/user/5/.base/steinhia/home/3D/practical1/build/CMakeFiles/main.dir
+/home/alexandra/Documents/git/3D/practical1/build/CMakeFiles/rebuild_cache.dir
+/home/alexandra/Documents/git/3D/practical1/build/CMakeFiles/edit_cache.dir
+/home/alexandra/Documents/git/3D/practical1/build/CMakeFiles/main.dir

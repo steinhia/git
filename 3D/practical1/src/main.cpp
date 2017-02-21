@@ -8,6 +8,7 @@
 #include "./../include/MeshRenderable.hpp"
 #include "./../include/ToreRenderable.hpp"
 #include "./../include/Io.hpp"
+#include <GL/glut.h>
 #include <iostream>
 
 
